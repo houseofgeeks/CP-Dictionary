@@ -9,5 +9,6 @@
 ✅Functions should be used for modularity<br>
 ✅New folders should be created for every new concept<br>
 ✅Rebasing should be done if not coding in master branch<br>
+✅One PR should include code for only one issue<br>
 
 

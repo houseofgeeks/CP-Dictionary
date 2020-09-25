@@ -5,7 +5,10 @@ using namespace std;
 
 //parameters are bnary_search(array address, size of array, key to find)
 int binary_search(int arr[], int n , int key) {
-	
+	if(is_sorted(arr,arr+n)!=true)
+		return ;
+	else
+	{
 	int start=0; // first index of array
 	int end=n-1; // last index of array
 	
@@ -22,11 +25,11 @@ int binary_search(int arr[], int n , int key) {
 		else // else the element can only be present in the right subarray
 		start=mid+1;
 	}
-	
 
 	return -1;
-}
 
+	}
+}
 int main() {
 
 	//example

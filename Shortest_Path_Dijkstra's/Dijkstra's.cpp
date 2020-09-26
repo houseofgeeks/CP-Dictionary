@@ -3,7 +3,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/* Main Function. */
 int main()
 {
 	/* n and m are denoting no. of nodes and edges repectively. */
@@ -11,7 +10,7 @@ int main()
 	cin >> n >> m;
 
 	/* Adjacency list to store the graph and the pair
-	storing as ending node and weight of te path. */
+	storing as ending node and weight of the path. */
 	vector<pair<int, int>> adj[n];
 
 	/* Vector to store the parent of each node */
@@ -28,16 +27,8 @@ int main()
 		adj[b - 1].push_back(make_pair(a - 1, w));
 	}
 
-	/* Printing the adjacency list. */
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	for (auto j : adj[i])
-	// 	{
-	// 		cout << i + 1 << " " << j.first + 1 << " " << j.second << endl;
-	// 	}
-	// }
 
-	/* Vector for storing the distance of each node and visited node. */
+	/* Vectors for storing the distance of each node and visited node. */
 	vector<int> dis(n, INT_MAX);
 	vector<int> vis(n, 0);
 
@@ -45,14 +36,11 @@ int main()
 		(to give priority to minimum distance) and the node. */
 	priority_queue<pair<int, int>> q; //dis node
 
-	/* Source node from which we have to start. */
-	int source_node = 0;
 
-	/*Since distance of source node is 0. */
+	int source_node = 0;
 	dis[source_node] = 0;
 	q.push({0, source_node});
 
-	/* Traversing till the queue becomes empty. */
 	while (!q.empty())
 	{
 		int a = q.top().second;
@@ -78,20 +66,6 @@ int main()
 		}
 	}
 
-	/* For printing the distance of node from the source node. */
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	cout << dis[i] << " ";
-	// }
-	// cout << endl;
-
-
-	/* For printing the parent node. */
-	// for (int i = 0; i < par.size(); ++i)
-	// {
-	// 	cout << par[i] << " ";
-	// }
-	// cout << endl;
 
 	/* path vector to store the shortest path. */
 	vector<int> path;
@@ -114,7 +88,6 @@ int main()
 		reverse(path.begin(), path.end());
 
 	}
-
 
 	/* Printing the path from source node to the end node. */
 	for (int i = 1; i < path.size(); i++)

@@ -26,7 +26,6 @@ void join(int a, int b, vector<int> &size, vector<int> &link)
     link[b] = a;
 }
 
-/* Driver Function. */
 int main()
 {
     /* n and e are denoting no. of nodes and edges repectively. */
@@ -47,14 +46,7 @@ int main()
     /* Sorting the edge list as per the weight of the path. */
     sort(E.begin(), E.end());
 
-
-    /* Printing the Edge list representation of the graph. */
-    // for (int i = 0; i < e; i++)
-    // {
-    //     cout << get<0>(E[i]) << " " << get<1>(E[i]) << " " << get<2>(E[i]) << endl;
-    // }
-
-    int sum = 0;
+    int path_sum = 0;
 
     /*Link vector stores a representative node of a particular connected component
       and size vector stores the size of that connected component */
@@ -71,12 +63,12 @@ int main()
         {
             /* Joining the nodes with the processing edge. */
             join(get<1>(E[i]), get<2>(E[i]), size, link);
-            sum += get<0>(E[i]);
+            path_sum += get<0>(E[i]);
         }
     }
 
-    /* Finally printing the total weight of the minimum spanning tree. */
-    cout << sum << endl;
+    /* Total weight of the minimum spanning tree. */
+    cout << path_sum << endl;
 
     return 0;
 }

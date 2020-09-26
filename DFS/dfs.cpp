@@ -10,27 +10,17 @@ vector<int> adj[N]; // for storing the edges in an adjacency list
 
 int vis[N]={0}; // array for marking the nodes which are already visited
 
-queue<int> q;
-
-void bfs(int u)
-{ 
-	vis[u]=1;
-	q.push(u);
+void dfs(int u)
+{
+	if(vis[u]!=0)
+	return ;
 	
-	while(!q.empty())
+	vis[u]=1;
+	
+	cout<<u<<" ";  
+	for(int x:adj[u])
 	{
-		int vertex=q.front();
-		cout<<vertex<<" ";
-		q.pop();
-		
-		for(int i:adj[vertex])
-		{
-			if(vis[i]==0)
-			{
-				vis[i]=1;
-				q.push(i);
-			}
-		}
+		dfs(x); 
 	}
 }
 int main()
@@ -48,7 +38,7 @@ int main()
 	int start_vertex; // vertex from which you want your DFS to start
 	cin>>start_vertex;
 	
-	bfs(start_vertex); //  performing DFS from vertex 1
+	dfs(start_vertex); //  performing DFS from vertex 1
 	
 	
 }

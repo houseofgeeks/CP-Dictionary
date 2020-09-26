@@ -5,21 +5,21 @@ void selection(int *a,int n)
     int k;
     for(int i=0;i<n;i++)
     {
-        int f=0;
-        int mi = a[i];
+        int f=0;                     //flag
+        int mi = a[i];               //intializing min value 
         for(int j=i;j<n;j++)
         {
             if(a[j]<mi)
             {
-                mi=a[j];
+                mi=a[j];            //finding the min value
                 k=j;
-                f=1;
+                f=1;                //assigning the flag value to 1
             }
         }
         if(f==1)
         {
-            a[k]=a[i];
-            a[i]=mi;
+            a[k]=a[i];               //exchanging the vlaues 
+            a[i]=mi;				 // assigning the min value to the starting indexes
         }
     }
 }

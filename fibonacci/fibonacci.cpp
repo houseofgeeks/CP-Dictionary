@@ -11,15 +11,15 @@ The next number is found by adding up the two numbers before it.
 // Returns the nth fibonacci number.
 long fibo(int n) {
 
-	long a = 0;
-	long b = 1;
-
 	if (n == 0 || n == 1) {
 		return n;
 	}
 
+	long a = 0; 
+	long b = 1;
 	long c;
 
+	// Generating the nth fibonacci number.
 	for (int i = 2; i <= n; i++) {
 		c = a + b;
 		a = b;

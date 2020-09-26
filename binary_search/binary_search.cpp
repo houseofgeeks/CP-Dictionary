@@ -4,11 +4,19 @@
 using namespace std;
 
 //parameters are bnary_search(array address, size of array, key to find)
+bool is_sorted(int intArray[], int size) {//need to pass in an integer array and the size of said array, question why not use vector since in c++
+	if (size < 1) {
+		return false;
+	}
+	int mid = size / 2;
+	for (unsigned int i = 0; i < size - 1; i++) {
+		if (intArray[i] > intArray[i + 1]) {
+			return false;
+		}
+	}
+	return true;
+}
 int binary_search(int arr[], int n , int key) {
-	if(is_sorted(arr,arr+n)!=true)
-		return ;
-	else
-	{
 	int start=0; // first index of array
 	int end=n-1; // last index of array
 	
@@ -34,8 +42,11 @@ int main() {
 
 	//example
 	int arr[] = {1 , 2 , 5 , 7 , 9 , 11};
+	int arrSize = 6;
 	//Note : Make sure the array is in sorted order before performing binary search
-
+	if (is_sorted(arr, arrSize) == false) {
+		return -1;
+	}
 	/*binary_search function returns the index of the element if the element is found
 	otherwise it returns -1 */
 	cout << binary_search(arr, 6, 7) << '\n';

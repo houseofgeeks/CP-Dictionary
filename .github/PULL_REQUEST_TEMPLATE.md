@@ -1,4 +1,4 @@
-### Solves Issue #<number>
+### Closes #<number>
 <Do NOT delete this template>
 Description: <Remove this line and provide a description. The title should be short and relevant.>
 

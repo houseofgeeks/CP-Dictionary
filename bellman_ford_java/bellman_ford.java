@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+// Input/Output
 public class bellman_ford {
     public static void main(String[] args) {
         InputStream inputStream = System.in;
@@ -48,6 +49,7 @@ public class bellman_ford {
         }
     }
 }
+//Solution
 class Solution
 {
     // Assuming no negative weight cycles
@@ -85,13 +87,14 @@ class Solution
     }
     public static int[] minDistance(ArrayList<Integer>[] adj,ArrayList<Integer>[] cost,int s)
     {
-        int[] dist=new int[adj.length];
+        int[] dist=new int[adj.length];       //for storing distance
         Arrays.fill(dist,Integer.MAX_VALUE);
-        int[] prev=new int[adj.length];
+        int[] prev=new int[adj.length];       //for storing previous node
         Arrays.fill(prev,-1);
         dist[s]=0;
         for(int i=0;i<adj.length-1;i++)
         {
+            // Exploring every edge
             for(int j=0;j<adj.length;j++)
             {
                 for(int k=0;k<adj[j].size();k++)
@@ -102,6 +105,7 @@ class Solution
         }
         return dist;
     }
+    //Modifying the distance between vertex u and v if possibly distance of u from source got changed.
     public static void Relax(int u,int v,int w,int[]dist,int[] prev)
     {
         if(dist[v]>dist[u]+w)

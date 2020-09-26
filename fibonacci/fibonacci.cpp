@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 /*
 The Fibonacci Sequence is the series of numbers:
 
@@ -8,29 +5,20 @@ The Fibonacci Sequence is the series of numbers:
 
 The next number is found by adding up the two numbers before it.
 */
-// Returns the nth fibonacci number.
-long fibo(int n) {
 
-	if (n == 0 || n == 1) {
-		return n;
-	}
+#include<bits/stdc++.h>
+using namespace std;
 
-	long a = 0; 
-	long b = 1;
-	long c;
+// Calculating nth Fibonacci number using Binet's Formula.
+int fib(int n) { 
+double phi = (1 + sqrt(5)) / 2; 
+return round(pow(phi, n) / sqrt(5)); 
+} 
+ 
+int main () 
+{ 
+int n = 8; 
+cout << fib(n) << endl; 
+return 0; 
+} 
 
-	// Generating the nth fibonacci number.
-	for (int i = 2; i <= n; i++) {
-		c = a + b;
-		a = b;
-		b = c;
-	}
-
-	return c;
-}
-
-int main() {
-
-	int n = 8;
-	cout << fibo(n);
-}

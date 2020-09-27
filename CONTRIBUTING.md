@@ -8,5 +8,6 @@
 ✅Code should be well indented and clean to read<br>
 ✅Functions should be used for modularity<br>
 ✅New folders should be created for every new concept<br>
+✅Folder names should be in snake_case style<br>
 ✅Rebasing should be done if not coding in master branch<br>
 ✅One PR should include code for only one issue<br>

@@ -43,7 +43,8 @@ void display()
 void loop()
 {
   struct node *p,*q;  
-  p=head; //assigning p as head node
+  p=head->next; //assigning p as next of  head node
+  p=p->next;     //assigning P ahead of q to check coincidence 
   q=head; //assigning q as head node
   while(p!=q)
     {

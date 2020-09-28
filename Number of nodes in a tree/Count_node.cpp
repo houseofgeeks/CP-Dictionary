@@ -3,7 +3,7 @@ using namespace std;
 struct node										// structure of an element of the tree
 {
 	int data;
-	node *child[2];								//an array for number of child of each node
+	node *child[10];								//an array for number of child of each node
 };
 node *newnode(int info,int n)					//function to create new elements in a tree
 {

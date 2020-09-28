@@ -1,29 +1,30 @@
 #include<iostream>
 using namespace std;
-struct node								// structure of an element of the tree
+struct node										// structure of an element of the tree
 {
 	int data;
-	node *right,*left;
+	node *child[2];								//an array for number of child of each node
 };
-node *newnode(int info)					//function to create new elements in a tree
+node *newnode(int info,int n)					//function to create new elements in a tree
 {
 	node *temp=new node;
 	temp->data=info;
-	temp->right=temp->left=NULL;
+	for(int i=0;i<n;i++)
+		temp->child[i]=NULL;
 	return temp;
 }
-int count_nodes(node *root, int &c)		//function to count the number of elements in a tree
+int count_nodes(node *root, int &c,int n)		//function to count the number of elements in a tree with n children of each node
 {
 	if(root==NULL)
 		return c;
-	count_nodes(root->left,c);
-	count_nodes(root->right,c);
+	for(int i=0;i<n;i++)
+		count_nodes(root->child[i],c,n);
 	return ++c;
 }
 int main()
 {
 	node *root=NULL;
-	int c=0;
+	int c=0,n=2;								//change the n to the number of child in a tree
 	/*
 		root->	1
 			   / \
@@ -33,16 +34,16 @@ int main()
 		  /       / \ 
 		 8       9  10
 	*/
-	root=newnode(1);
-	root->right=newnode(2);
-	root->left=newnode(3);
-	root->right->right=newnode(4);
-	root->right->left=newnode(5);
-	root->left->right=newnode(6);
-	root->left->left=newnode(7);
-	root->right->right->right=newnode(8);
-	root->left->left->right=newnode(9);
-	root->left->left->left=newnode(10);
-	cout<<"Number of nodes:"<<count_nodes(root,c);
+	root=newnode(1,n);
+	root->child[0]=newnode(2,n);
+	root->child[1]=newnode(3,n);
+	root->child[0]->child[0]=newnode(4,n);
+	root->child[0]->child[1]=newnode(5,n);
+	root->child[1]->child[0]=newnode(6,n);
+	root->child[1]->child[1]=newnode(7,n);
+	root->child[0]->child[0]->child[0]=newnode(8,n);
+	root->child[1]->child[1]->child[0]=newnode(9,n);
+	root->child[1]->child[1]->child[1]=newnode(10,n);
+	cout<<"Number of nodes:"<<count_nodes(root,c,n);
 	
 }

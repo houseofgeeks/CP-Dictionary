@@ -4,3 +4,8 @@
 
 # executable file
 *.exe
+
+#ignore all files witohut an extension
+*
+!/**/
+!*.*

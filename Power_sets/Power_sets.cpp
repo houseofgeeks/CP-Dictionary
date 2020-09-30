@@ -4,6 +4,7 @@
 #include <math.h>
 using namespace std;
 
+
 void printPowerSet(char *set, int set_size)
 {
     /*set_size of power set of a set with set_size

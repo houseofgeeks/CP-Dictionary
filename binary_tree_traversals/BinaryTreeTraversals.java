@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class BinaryTreeTraversals {
 
 	/* A binary tree node has data, pointer to left child 
@@ -67,6 +69,92 @@ public class BinaryTreeTraversals {
 		System.out.print(node.data + " ");
 	}
 
+	// Prints the level-order traversal of 
+	// a binary tree, provide the root node 
+	// of the same.
+	public static void printLevelOrder(Node root)  
+    { 
+        Queue<Node> queue = new LinkedList<Node>(); 
+        queue.add(root); 
+        while (!queue.isEmpty())  
+        { 
+  
+            // poll() removes the present head. 
+            Node tempNode = queue.poll(); 
+            System.out.print(tempNode.data + " "); 
+  
+            /*Enqueue left child */
+            if (tempNode.left != null) { 
+                queue.add(tempNode.left); 
+            } 
+  
+            /*Enqueue right child */
+            if (tempNode.right != null) { 
+                queue.add(tempNode.right); 
+            } 
+        } 
+    } 
+
+	// Prints the zig-zag level-order traversal of 
+	// a binary tree, provide the root node 
+	// of the same.
+	public static void printZigZagLevelOrder(Node root) {
+
+		List<List<Integer>> zigzagLevelOrder = zigzagLevelOrder(root);
+
+		for (List<Integer> list : zigzagLevelOrder) {
+			for (int element : list) {
+				System.out.print(element + " ");
+			}
+		}
+
+		System.out.println();
+	}
+
+	// Helper method to return zig-zag level-order traversal.
+	public static List<List<Integer>>  zigzagLevelOrder(Node root) {
+
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+
+        if (root == null) {
+            return res;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.offer(root);
+        boolean from_left = true;
+
+        while (!queue.isEmpty()) {
+
+            // We will have all next level child nodes in the queue.
+
+            int num_level_nodes = queue.size();
+
+            List<Integer> curr_level = new LinkedList<Integer>();
+
+            for (int i = 0; i < num_level_nodes; i++) {
+
+                Node curr_node = queue.poll();
+
+                if (from_left)
+                    curr_level.add(curr_node.data);
+                else 
+                    curr_level.add(0, curr_node.data); // Insert at other end
+
+                if (curr_node.left != null)
+                    queue.offer(curr_node.left);
+                if (curr_node.right != null)
+                    queue.offer(curr_node.right);
+            }
+
+            res.add(curr_level);
+            from_left = !from_left;
+        }
+
+        return res;
+    }
+
 
 	public static void main(String[] args) {
 		
@@ -97,5 +185,11 @@ public class BinaryTreeTraversals {
 
 	    System.out.println("\nPostorder traversal of binary tree: ");
 	    printPostOrder(root);
+
+	    System.out.println("\nLevel-order traversal of binary tree: ");
+	    printLevelOrder(root);
+
+	    System.out.println("\nZig zag level-order traversal of binary tree: ");
+	    printZigZagLevelOrder(root);
 	}
 }

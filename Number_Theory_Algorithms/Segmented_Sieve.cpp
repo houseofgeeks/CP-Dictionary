@@ -22,6 +22,8 @@ void simpleSieve(int limit, vector<int> &prime)
 		}
 	}
 }
+
+
 void segmentedSieve(int n)
 {
 	int limit = floor(sqrt(n))+1;

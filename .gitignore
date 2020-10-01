@@ -1,2 +1,14 @@
 /.idea
 /CP-Dictionary.iml
+
+# object files
+*.o
+*.obj
+
+# executable file
+*.exe
+
+#ignore all files witohut an extension
+*
+!/**/
+!*.*

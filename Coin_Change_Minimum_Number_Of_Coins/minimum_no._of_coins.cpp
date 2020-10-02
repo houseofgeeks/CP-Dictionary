@@ -5,7 +5,7 @@ using namespace std;
 const int INF = 1e7;
 
 /* Recursive Approach. */
-int number_of_ways_recursive(int n, int sum, vector<int> &C)
+int minm_coins_recursive(int n, int sum, vector<int> &C)
 {
 	/* Base Cases. */
 	if (n <= 0) return INF;
@@ -14,17 +14,17 @@ int number_of_ways_recursive(int n, int sum, vector<int> &C)
 	/* condition that current coin value is less than the current sum then we will
 		take the minimum between taking the coin and not taking the coin. */
 	else if (C[n - 1] <= sum)
-		return min(1 + number_of_ways_recursive(n, sum - C[n - 1], C),
-		           number_of_ways_recursive(n - 1, sum, C));
+		return min(1 + minm_coins_recursive(n, sum - C[n - 1], C),
+		           minm_coins_recursive(n - 1, sum, C));
 
 	/* condition when current coin value exceeds the current sum the
 		we will not take the coin at nth position. */
-	else return number_of_ways_recursive(n - 1, sum, C);
+	else return minm_coins_recursive(n - 1, sum, C);
 }
 
 
 /* Memoized version. */
-int number_of_ways_memoized(int n, int sum, vector<int> &C, vector<vector<int>> &memo)
+int minm_coins_memoized(int n, int sum, vector<int> &C, vector<vector<int>> &memo)
 {
 	/* Base cases. */
 	if (n <= 0) return memo[n][sum] = INF;
@@ -39,16 +39,16 @@ int number_of_ways_memoized(int n, int sum, vector<int> &C, vector<vector<int>> 
 		we will compute it and store in vector memo. */
 	else if (C[n - 1] <= sum)
 	{
-		memo[n][sum] = min(1 + number_of_ways_memoized(n, sum - C[n - 1], C, memo),
-		                   number_of_ways_memoized(n - 1, sum, C, memo));
+		memo[n][sum] = min(1 + minm_coins_memoized(n, sum - C[n - 1], C, memo),
+		                   minm_coins_memoized(n - 1, sum, C, memo));
 
 		return memo[n][sum];
 	}
-	else return memo[n][sum] = number_of_ways_memoized(n - 1, sum, C, memo);
+	else return memo[n][sum] = minm_coins_memoized(n - 1, sum, C, memo);
 }
 
 
-int number_of_ways_bottom_up(int n, int sum, vector<int> &C)
+int minm_coins_bottom_up(int n, int sum, vector<int> &C)
 {
 	/* dp vector to store the results. */
 	vector<vector<int>> dp(n + 1, vector<int>(sum + 1, 0));
@@ -98,17 +98,17 @@ int main()
 	cin >> sum;
 
 	/* If answer will exceed 10^6 then there is no possible combination. */
-	int ans = number_of_ways_recursive(n, sum, C);
+	int ans = minm_coins_recursive(n, sum, C);
 	if (ans > 1e6) cout << -1 << endl;
 	else cout << ans << endl;
 
 	/* memo vector to store the previous results. */
 	vector<vector<int>> memo(n + 1, vector<int>(sum + 1, -1));
-	ans = number_of_ways_memoized(n, sum, C, memo);
+	ans = minm_coins_memoized(n, sum, C, memo);
 	if (ans > 1e6) cout << -1 << endl;
 	else cout << ans << endl;
 
 
-	cout << number_of_ways_bottom_up(n, sum, C) << endl;
+	cout << minm_coins_bottom_up(n, sum, C) << endl;
 
 }

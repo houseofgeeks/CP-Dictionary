@@ -20,4 +20,4 @@ int main(){
 }
 
 //ax + by = gcd and (b%a)x1 + ay1 = gcd (by Euclidean Algorithm) 
-//solving these equation we get x = y1 -(b/a)*x1 and y = x1
+//solving these equations we get x = y1 -(b/a)*x1 and y = x1

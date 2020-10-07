@@ -6,14 +6,6 @@ normal single source dijkstra algorithm from that dummy source.
 #include<bits/stdc++.h>
 using namespace std;
 
-void OJ()
-{
-#ifndef ONLINE_JUDGE
-    freopen("input.in", "r", stdin);
-    freopen("output.in", "w", stdout);
-#endif
-    // FIFO;
-}
 
 
 vector<int> MultiSource_dijkstra(vector<vector<int> > &adj, map<pair<int, int>, int> &mp, int v, int src) {
@@ -46,7 +38,7 @@ vector<int> MultiSource_dijkstra(vector<vector<int> > &adj, map<pair<int, int>, 
 }
 
 int main() {
-    OJ();
+ 
     int v, e, src;
     cout << "Enter number of vertices,number of edges and source vertex: " << endl;
     cin >> v >> e;

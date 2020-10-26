@@ -1,4 +1,7 @@
-# CP-Dictionary
+# Chef'sClub IIITR
+![logo](https://github.com/houseofgeeks/CP-Dictionary/blob/master/chefsclub.png)
+###### Presents
+## CP-Dictionary
 
 <h3>Competitive Programming Dictionary of IIITR</h3><br>
 

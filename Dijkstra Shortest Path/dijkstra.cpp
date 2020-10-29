@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 // Total number of vertices in graph
-#define V 9  
+const V = 9;  
 
 // For printing the shortest path
 int shortest_path(int dist[], int n)
@@ -49,16 +49,28 @@ int main()
 {
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
-      int G[V][V] = { 
-      { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
-      { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
-      { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
-      { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
-      { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
-      { 0, 0, 4, 14, 10, 0, 2, 0, 0 },
-      { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
-      { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
-      { 0, 0, 2, 0, 0, 0, 6, 7, 0 }};
+   
+//       int G[V][V] = { 
+//       { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
+//       { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
+//       { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
+//       { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
+//       { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
+//       { 0, 0, 4, 14, 10, 0, 2, 0, 0 },
+//       { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
+//       { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
+//       { 0, 0, 2, 0, 0, 0, 6, 7, 0 }};
+      int G[V][V];
+      cout<<"Enter the vertices for a graph with 6 vetices";
+      for (int i=0;i<V;i++)
+       {
+           for(int j=0;j<V;j++)
+           {
+            cin>>G[i][j];
+           }
+       }
+   
+   
       cout<< "\nSource vetiex is 0\n"<<endl;
       cout<<"following shows SHORTEST Distance of vertices from source vertex \n\n"<<endl;
       Dijkstra(G, 0);  

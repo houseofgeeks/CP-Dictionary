@@ -61,13 +61,14 @@ int main()
 //       { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
 //       { 0, 0, 2, 0, 0, 0, 6, 7, 0 }};
       int G[V][V];
-      cout<<"Enter the vertices for a graph with 6 vetices";
-      for (int i=0;i<V;i++)
+      cout<<"Enter the graph"<<endl;
+      for(int i=0;i<V;i++)
        {
            for(int j=0;j<V;j++)
            {
             cin>>G[i][j];
            }
+         cout<<"\n";
        }
    
    

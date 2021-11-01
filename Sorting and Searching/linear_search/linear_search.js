@@ -1,4 +1,4 @@
-//Credit:-GeeksForGeeks
+//Credit:-GeeksForGeeks link:-https://www.geeksforgeeks.org/linear-search/
 //Javascript code to linearly search x in arr[]. If x is present then return its location, otherwise return -1
  
 function search(arr, n, x)

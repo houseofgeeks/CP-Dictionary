@@ -1,4 +1,4 @@
-//Credit:-GeeksForGeeks
+//Credit:-GeeksForGeeks Link:-https://www.geeksforgeeks.org/selection-sort/
 // Javascript program for implementation of selection sort
 function swap(arr,xp, yp)
 {

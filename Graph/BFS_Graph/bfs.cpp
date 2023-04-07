@@ -48,7 +48,7 @@ int main()
 	int start_vertex; // vertex from which you want your DFS to start
 	cin>>start_vertex;
 	
-	bfs(start_vertex); //  performing DFS from vertex 1
+	bfs(start_vertex); //  performing BFS from vertex 1
 	
 	
 }

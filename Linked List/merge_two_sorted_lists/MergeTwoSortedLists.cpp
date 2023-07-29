@@ -68,12 +68,6 @@ private:
     }
 
 public:
-    /**
-     * Merges two sorted linked lists into a single sorted linked list.
-     * @param list1 The head of the first sorted linked list.
-     * @param list2 The head of the second sorted linked list.
-     * @return The head of the merged sorted linked list.
-     */
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         if (list1 == nullptr) {
             return list2;

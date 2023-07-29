@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Leetcode 21. Merge Two Sorted Lists
+// Merge Two Sorted Lists
 
 // You are given the heads of two sorted linked lists list1 and list2.
 // Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
